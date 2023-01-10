@@ -1,0 +1,4 @@
+name: PlayerCommands
+version: '${version}'
+main: dev.badbird.playercommands.PlayerCommands
+api-version: 1.19
