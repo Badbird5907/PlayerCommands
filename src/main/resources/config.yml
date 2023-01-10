@@ -1,0 +1,7 @@
+commands:
+  delay: 0 # Delay in ticks
+  join:
+    - examplecmd %player% # Command executed by console
+    - player:examplecmd # Command executed by player since player: is put in front of it.
+  leave:
+    - examplecmd %player%
