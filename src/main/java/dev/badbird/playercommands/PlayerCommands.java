@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class PlayerCommands extends JavaPlugin implements Listener {
@@ -25,7 +26,7 @@ public final class PlayerCommands extends JavaPlugin implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         List<String> commands = getConfig().getStringList("commands.join");
-        int delay = getConfig().getInt("command.delay");
+        int delay = getConfig().getInt("commands.delay", 0);
         if (delay > 0) {
             getServer().getScheduler().runTaskLater(this, () -> {
                 execute(commands, event.getPlayer());
@@ -38,7 +39,7 @@ public final class PlayerCommands extends JavaPlugin implements Listener {
     @EventHandler
     public void onLeave(PlayerQuitEvent event) {
         List<String> commands = getConfig().getStringList("commands.leave");
-        int delay = getConfig().getInt("command.delay");
+        int delay = getConfig().getInt("commands.delay", 0);
         if (delay > 0) {
             getServer().getScheduler().runTaskLater(this, () -> {
                 execute(commands, event.getPlayer());
